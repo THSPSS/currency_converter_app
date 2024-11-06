@@ -80,12 +80,18 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                 onPressed: () {
                   // get the value of inputAmontController.text and multiply it with usd 0.00072 
                   var resultOfConv = (int.parse(inputAmountController.text)*0.00072).toStringAsFixed(2);
+                  debugPrint('result of convert $resultOfConv');
                   // update text variable
                   setState(() {
                     convertedToAmount = resultOfConv;
                   });
 
-                }, 
+                },
+                style : const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.white),
+                  foregroundColor: MaterialStatePropertyAll(Colors.black),
+                  fixedSize: MaterialStatePropertyAll(Size(200, 50)),
+                ),
                 child: const Text('Click Here!'))
           ],
           ),
