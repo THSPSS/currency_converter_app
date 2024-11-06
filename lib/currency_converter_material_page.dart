@@ -90,7 +90,7 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                 style : const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.white),
                   foregroundColor: MaterialStatePropertyAll(Colors.black),
-                  fixedSize: MaterialStatePropertyAll(Size(200, 50)),
+                  fixedSize: MaterialStatePropertyAll(Size(200, 150)),
                 ),
                 child: const Text('Click Here!'))
           ],
