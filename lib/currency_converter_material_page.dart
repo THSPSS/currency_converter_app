@@ -74,25 +74,35 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                ),
                //Button
 
-               //raised
-               //appears like a text
-               TextButton(
-                onPressed: () {
-                  // get the value of inputAmontController.text and multiply it with usd 0.00072 
-                  var resultOfConv = (int.parse(inputAmountController.text)*0.00072).toStringAsFixed(2);
-                  debugPrint('result of convert $resultOfConv');
-                  // update text variable
-                  setState(() {
-                    convertedToAmount = resultOfConv;
-                  });
-
-                },
-                style : const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.white),
-                  foregroundColor: MaterialStatePropertyAll(Colors.black),
-                  fixedSize: MaterialStatePropertyAll(Size(200, 350)),
-                ),
-                child: const Text('Click Here!'))
+               //raised and textbutton has same propreties, but design is slightly different
+               //raised has tapping effect
+               //textButton : appears like a text  
+               Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: ElevatedButton(
+                  onPressed: () {
+                    // get the value of inputAmontController.text and multiply it with usd 0.00072 
+                    var resultOfConv = (int.parse(inputAmountController.text)*0.00072).toStringAsFixed(2);
+                    debugPrint('result of convert $resultOfConv');
+                    // update text variable
+                    setState(() {
+                      convertedToAmount = resultOfConv;
+                    });
+                  },
+                  style : ButtonStyle(
+                    elevation: const MaterialStatePropertyAll(10.0),
+                    backgroundColor: const MaterialStatePropertyAll(Colors.white),
+                    foregroundColor: const MaterialStatePropertyAll(Colors.black),
+                    //double.infinity has media width
+                    minimumSize: const MaterialStatePropertyAll(Size(double.infinity, 50)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      )
+                    )
+                  ),
+                  child: const Text('Convert')),
+               )
           ],
           ),
         ),
