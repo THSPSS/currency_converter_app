@@ -94,7 +94,9 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                     backgroundColor: const MaterialStatePropertyAll(Colors.white),
                     foregroundColor: const MaterialStatePropertyAll(Colors.black),
                     //double.infinity has media width
-                    minimumSize: const MaterialStatePropertyAll(Size(double.infinity, 50)),
+                    //minimumSize: const MaterialStatePropertyAll(Size(double.infinity, 50)),
+                     maximumSize: MaterialStatePropertyAll(Size(double.infinity, 50)),
+                    //shape: OvalBorder
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
