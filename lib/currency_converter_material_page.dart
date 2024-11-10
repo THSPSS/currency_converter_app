@@ -79,7 +79,7 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                //textButton : appears like a text  
                Padding(
                  padding: const EdgeInsets.all(8.0),
-                 child: ElevatedButton(
+                 child: TextButton(
                   onPressed: () {
                     // get the value of inputAmontController.text and multiply it with usd 0.00072 
                     var resultOfConv = (int.parse(inputAmountController.text)*0.00072).toStringAsFixed(2);
@@ -89,19 +89,19 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                       convertedToAmount = resultOfConv;
                     });
                   },
-                  style : ButtonStyle(
-                    elevation: const MaterialStatePropertyAll(10.0),
-                    backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                    foregroundColor: const MaterialStatePropertyAll(Colors.black),
+                  style : const ButtonStyle(
+                    elevation: MaterialStatePropertyAll(10.0),
+                    backgroundColor: MaterialStatePropertyAll(Colors.white),
+                    foregroundColor: MaterialStatePropertyAll(Colors.black),
                     //double.infinity has media width
-                    //minimumSize: const MaterialStatePropertyAll(Size(double.infinity, 50)),
-                     maximumSize: MaterialStatePropertyAll(Size(double.infinity, 50)),
-                    //shape: OvalBorder
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      )
-                    )
+                    minimumSize: MaterialStatePropertyAll(Size(double.infinity, 50)),
+                    //shape: OvalBorder , rectableBorder , continouseBorder
+                    shape: MaterialStatePropertyAll(RoundedRectangleBorder()), 
+                    // MaterialStateProperty.all<RoundedRectangleBorder>(
+                    //   RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(5.0),
+                    //   )
+                    // )
                   ),
                   child: const Text('Convert')),
                )
