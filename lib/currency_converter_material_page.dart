@@ -33,6 +33,14 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
 
     return Scaffold(
         backgroundColor: Colors.green,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: const Text('Currency Converter'),
+          titleTextStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0
+          ),
+        ),
         body : Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -89,20 +97,30 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                       convertedToAmount = resultOfConv;
                     });
                   },
-                  style : const ButtonStyle(
-                    elevation: MaterialStatePropertyAll(10.0),
-                    backgroundColor: MaterialStatePropertyAll(Colors.white),
-                    foregroundColor: MaterialStatePropertyAll(Colors.black),
+                  style : 
+                  TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
                     //double.infinity has media width
-                    minimumSize: MaterialStatePropertyAll(Size(double.infinity, 50)),
+                    // ignore: prefer_const_constructors
+                    minimumSize: Size(double.infinity, 50),
                     //shape: OvalBorder , rectableBorder , continouseBorder
-                    shape: MaterialStatePropertyAll(RoundedRectangleBorder()), 
-                    // MaterialStateProperty.all<RoundedRectangleBorder>(
-                    //   RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.circular(5.0),
-                    //   )
-                    // )
+                    shape: const RoundedRectangleBorder(), 
                   ),
+                  // const ButtonStyle(
+                  //   elevation: MaterialStatePropertyAll(10.0),
+                  //   backgroundColor: MaterialStatePropertyAll(Colors.white),
+                  //   foregroundColor: MaterialStatePropertyAll(Colors.black),
+                  //   //double.infinity has media width
+                  //   minimumSize: MaterialStatePropertyAll(Size(double.infinity, 50)),
+                  //   //shape: OvalBorder , rectableBorder , continouseBorder
+                  //   shape: MaterialStatePropertyAll(RoundedRectangleBorder()), 
+                  //   // MaterialStateProperty.all<RoundedRectangleBorder>(
+                  //   //   RoundedRectangleBorder(
+                  //   //     borderRadius: BorderRadius.circular(5.0),
+                  //   //   )
+                  //   // )
+                  // ),
                   child: const Text('Convert')),
                )
           ],
