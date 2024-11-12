@@ -40,6 +40,11 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
             fontWeight: FontWeight.bold,
             fontSize: 20.0
           ),
+          actions: [
+            const TextButton(
+              onPressed: null, child: 
+              Text('Close'))
+          ],
         ),
         body : Center(
           child: Column(
