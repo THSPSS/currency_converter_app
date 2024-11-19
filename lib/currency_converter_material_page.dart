@@ -28,6 +28,12 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
   final inputAmountController = TextEditingController();
   late double convertedToAmount = 0;
 
+  void convert() {
+    setState(() {
+      convertedToAmount = double.parse(inputAmountController.text) * 1391.18;
+    });
+  }
+
   //kepp build function clean as possible
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,7 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
     // of the TextField.
     const border = OutlineInputBorder(
                   //Color(0xAARRGGBB) alpha , red , green, black
-                  //0xFF000000
+                  //0xFF000001
                   borderSide: BorderSide(
                     width: 2.0,
                   )
@@ -58,22 +64,22 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
           ],
         ),
         body : Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-               Text(
-                'KRW ${convertedToAmount.toString()}', 
-                style: const TextStyle(
-                fontSize:85,
-                fontWeight: FontWeight.bold,
-                color : Colors.white
-               )
-               ),
-               //padding and container
-               //contrl + shift + R : refactoring widget
-               Padding(
-                 padding: const EdgeInsets.all(8.0),
-                 child: TextField(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                 Text(
+                  'KRW ${convertedToAmount != 0 ? convertedToAmount.toStringAsFixed(2) : convertedToAmount.toStringAsFixed(0)}', 
+                  style: const TextStyle(
+                  fontSize:50,
+                  fontWeight: FontWeight.bold,
+                  color : Colors.white
+                 )
+                 ),
+                 //padding and container
+                 //contrl + shift + R : refactoring widget
+                 TextField(
                     controller: inputAmountController,
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.all(20.0),
@@ -95,46 +101,23 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
                       signed: true
                     ),
                  ),
-               ),
-               //Button
-              Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextButton(
-              onPressed: () {
-                // get the value of inputAmontController.text and multiply it with usd 0.00072 
-                // var resultOfConv = (double.parse(inputAmountController.text)*);
-                // update text variable
-                setState(() {
-                  convertedToAmount = double.parse(inputAmountController.text) * 1391.18;
-                });
-              },
-              style : 
-              TextButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                //double.infinity has media width
-                // ignore: prefer_const_constructors
-                minimumSize: Size(double.infinity, 50),
-                //shape: OvalBorder , rectableBorder , continouseBorder
-                shape: const RoundedRectangleBorder(), 
-              ),
-              // const ButtonStyle(
-              //   elevation: MaterialStatePropertyAll(10.0),
-              //   backgroundColor: MaterialStatePropertyAll(Colors.white),
-              //   foregroundColor: MaterialStatePropertyAll(Colors.black),
-              //   //double.infinity has media width
-              //   minimumSize: MaterialStatePropertyAll(Size(double.infinity, 50)),
-              //   //shape: OvalBorder , rectableBorder , continouseBorder
-              //   shape: MaterialStatePropertyAll(RoundedRectangleBorder()), 
-              //   // MaterialStateProperty.all<RoundedRectangleBorder>(
-              //   //   RoundedRectangleBorder(
-              //   //     borderRadius: BorderRadius.circular(5.0),
-              //   //   )
-              //   // )
-              // ),
-              child: const Text('Convert')),
-            )
-            ]
+                 const SizedBox(height: 10.0,),
+                 //Button
+                TextButton(
+                onPressed: convert,
+                style : 
+                TextButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  //double.infinity has media width
+                  // ignore: prefer_const_constructors
+                  minimumSize: Size(double.infinity, 50),
+                  //shape: OvalBorder , rectableBorder , continouseBorder
+                  shape: const RoundedRectangleBorder(), 
+                ),
+                child: const Text('Convert'))
+              ]
+            ),
           )
           )
         );
